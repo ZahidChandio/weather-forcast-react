@@ -6,9 +6,10 @@ export function* fetchWeather(payload) {
   try {
     const response = yield call(() =>
       http.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${payload.query}&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${payload.query}&units=imperial&appid=a3a022a3ada4a6f27abeb7085072fced`
       )
     );
+    console.log(response);
     yield put({ type: types.FETCH_WEATHER_SUCCESS, response: response });
   } catch (error) {
     yield put({ type: types.FETCH_WEATHER_FAILURE, error });

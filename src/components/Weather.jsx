@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react'
 
 function Weather({ weather }) {
@@ -7,7 +6,7 @@ function Weather({ weather }) {
         {/* Top */}
         <div className='relatie flex justify-between pt-12'>
             <div className='flex flex-col items-center'>
-                <Image src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} 
+                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} 
                     alt='/'
                     width='100'
                     height='100'

@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-      <main className="">
+      <main className="h-screen overflow-hidden">
         {/* Overlay */}
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-[1]"/>
         {/* Background Image */}
@@ -35,17 +35,20 @@ function App() {
 
          alt='background' className='absolute object-fill h-full w-full overflow-hidden'
         />
-        <div className='relative flex justify-between items-center max-w-[600px] w-full m-auto pb-0 p-2 sm:px-4 pt-8 text-white z-10'>
-          <form onSubmit={getWeather} className='flex justify-between gap-2 items-center w-full m-auto px-3 py-2 bg-transparent border-2 border-gray-300 text-white rounded-xl'>
-            <div className='w-full'>
-              <input type="text" placeholder='Enter City Name' value={city} onChange={(e) => setCity(e.target.value)} 
-                className='text- bg-transparent border-none text-white p-2 rounded-md focus:outline-none h-full w-full'
-              />
-            </div>
-              <button type='submit' className="text-gray-400 outline-none" title='search'> 
-                <i className='fas fa-search text-lg'/>
-              </button>
-          </form>
+        <div className='relative flex justify-between items-center max-w-[600px] w-full m-auto pb-0 p-2 sm:px-4 pt-6 text-white z-10'>
+          <div className='flex flex-col gap-5 items-center justify-center w-full'>
+            <h3 className='text-center text-3xl sm:text-4xl font-semibold text-white'>Weather Forecast</h3>
+            <form onSubmit={getWeather} className='flex justify-between gap-2 items-center w-full m-auto px-3 py-1.5 sm:py-2 bg-transparent border-2 border-gray-300 text-white rounded-xl'>
+              <div className='w-full'>
+                <input type="text" placeholder='Enter City Name' value={city} onChange={(e) => setCity(e.target.value)} 
+                  className='text- bg-transparent border-none text-white p-2 rounded-md focus:outline-none h-full w-full'
+                />
+              </div>
+                <button type='submit' className="text-gray-400 outline-none" title='search'> 
+                  <i className='fas fa-search text-lg'/>
+                </button>
+            </form>
+          </div>
         </div>
         {/* Weather */}
         <Weather weather={weatherData} isWeatherLoading={loading} isError={error}/>
